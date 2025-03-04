@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SecondHandMarket"
+             x:Class="SecondHandMarket.MarketPage"
+             Title="太科市场">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ProductLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="Gray" />
+            </Style>
+            <Style x:Key="ProductNameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <SearchBar x:Name="ProductSearchBar" Placeholder="搜索商品" TextChanged="OnSearchTextChanged" Grid.Row="0" />
+        
+        <CollectionView x:Name="ProductsCollectionView" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" HasShadow="True" CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <!-- 为 Image 控件设置 BindingContextChanged 事件 -->
+                            <Image HeightRequest="100"
+                                   HorizontalOptions="Start"
+                                   BindingContextChanged="OnImageBindingContextChanged">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnProductTapped" CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <StackLayout Orientation="Vertical" Padding="10,0,0,0">
+                                <Label Text="{Binding Name}" Style="{StaticResource ProductNameStyle}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnProductTapped" CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <!-- 添加商品发布日期 -->
+                                <Label Text="{Binding CreatedAt, StringFormat='发布日期: {0:yyyy-MM-dd}'}" Style="{StaticResource ProductLabelStyle}" />
+                                <Label Text="{Binding Price, StringFormat='价格: {0:C}'}" Style="{StaticResource ProductLabelStyle}" />
+                                <Label Text="{Binding OwnerNickname}" Style="{StaticResource ProductLabelStyle}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <Button Text="加载更多" Clicked="OnLoadMoreClicked" Grid.Row="2" />
+    </Grid>
+</ContentPage>

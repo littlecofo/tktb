@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.ProductDetailPage"
+             Title="商品详情">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DetailLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Margin" Value="0,5,0,5" />
+            </Style>
+            <Style x:Key="DetailTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0,10,0,10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="20">
+            <!-- 修改产品图片显示模式 -->
+            <Image x:Name="ProductImage" HeightRequest="200" Aspect="AspectFit" />
+            <Label x:Name="ProductName" Style="{StaticResource DetailTitleStyle}" />
+            <!-- 添加商品发布日期 -->
+            <Label x:Name="ProductDate" Style="{StaticResource DetailLabelStyle}" />
+            <Label x:Name="ProductPrice" Style="{StaticResource DetailLabelStyle}" />
+            <Label x:Name="ProductDescription" Style="{StaticResource DetailLabelStyle}" />
+            <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+            <Label Text="卖家信息" Style="{StaticResource DetailTitleStyle}" />
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Image x:Name="SellerProfilePhoto" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" />
+                <StackLayout>
+                    <Label x:Name="SellerNickname" Style="{StaticResource DetailLabelStyle}" />
+                    <Label x:Name="SellerTitle" Style="{StaticResource DetailLabelStyle}" />
+                    <Label x:Name="SellerLevel" Style="{StaticResource DetailLabelStyle}" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

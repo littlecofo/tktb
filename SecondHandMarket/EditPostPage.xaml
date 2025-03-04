@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.EditPostPage"
+             Title="发帖">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="加粗" Clicked="OnBoldClicked" />
+        <ToolbarItem Text="斜体" Clicked="OnItalicClicked" />
+        <ToolbarItem Text="下划线" Clicked="OnUnderlineClicked" />
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="30">
+        <Entry x:Name="TitleEntry" Placeholder="标题" />
+        <Picker x:Name="CategoryPicker" Title="分类">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>闲聊</x:String>
+                    <x:String>求助</x:String>
+                    <x:String>求购</x:String>
+                    <x:String>实用分享</x:String>
+                    <x:String>交友</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Editor x:Name="ContentEditor" Placeholder="详细内容" HeightRequest="200" />
+        <Button Text="发布" Clicked="OnSaveClicked" />
+    </StackLayout>
+</ContentPage>

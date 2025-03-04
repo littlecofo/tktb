@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.ForumPage"
+             Title="太科贴吧">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="PostTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="Blue"/>
+            </Style>
+            <Style x:Key="PostLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="Gray"/>
+            </Style>
+            <Style x:Key="HighlightLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="5,0,0,0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="30">
+
+            <SearchBar x:Name="PostSearchBar"
+                       Placeholder="搜索帖子"
+                       SearchButtonPressed="OnSearchBarButtonPressed"/>
+
+            <Picker x:Name="CategoryPicker"
+                    Title="选择帖子类型"
+                    SelectedIndexChanged="OnCategoryPickerSelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>全部</x:String>
+                        <x:String>闲聊</x:String>
+                        <x:String>求助</x:String>
+                        <x:String>求购</x:String>
+                        <x:String>实用分享</x:String>
+                        <x:String>交友</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <CollectionView x:Name="PostsCollectionView"
+                            SelectionChanged="OnPostSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10"
+                               Margin="5"
+                               HasShadow="True"
+                               CornerRadius="10">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="10">
+                                    <Label Text="{Binding Title}"
+                                           Style="{StaticResource PostTitleStyle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnPostTitleTapped"
+                                                                  CommandParameter="{Binding .}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="【置顶】"
+                                           Style="{StaticResource HighlightLabelStyle}"
+                                           TextColor="Red"
+                                           IsVisible="{Binding IsPinned}"/>
+                                    <Label Text="【精华】"
+                                           Style="{StaticResource HighlightLabelStyle}"
+                                           TextColor="Green"
+                                           IsVisible="{Binding IsFeatured}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="10">
+                                    <Label Text="{Binding Category}"
+                                           Style="{StaticResource PostLabelStyle}"/>
+                                    <Label Text="{Binding CreatedAt, StringFormat='{0:yyyy-MM-dd HH:mm}'}"
+                                           Style="{StaticResource PostLabelStyle}"/>
+                                </StackLayout>
+                                <Label Text="{Binding AuthorNickname}"
+                                       Style="{StaticResource PostLabelStyle}"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="发帖"
+                    Clicked="OnAddPostClicked"/>
+            <Button Text="加载更多"
+                    Clicked="OnLoadMoreClicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

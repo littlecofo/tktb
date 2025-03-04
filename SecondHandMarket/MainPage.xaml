@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.MainPage"
+             Title="太科掌上助手">
+    
+    <!-- 页面布局 -->
+    <Grid>
+        <ScrollView>
+            <!-- 页面布局 -->
+            <VerticalStackLayout Spacing="20" Padding="30">
+                <!-- 标题 -->
+                <Label Text="太科掌上助手" 
+                   FontSize="28"   
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+
+                <!-- 太科市场按钮 -->
+                <Button Text="二手市场" 
+                    Clicked="OnMarketClicked" 
+                    FontSize="20" 
+                    HorizontalOptions="Fill" 
+                    BackgroundColor="#2196F3" 
+                    TextColor="White" />
+
+                <!-- 个人空间按钮 -->
+                <Button Text="个人空间" 
+                    Clicked="OnProfileClicked" 
+                    FontSize="20" 
+                    HorizontalOptions="Fill" 
+                    BackgroundColor="#4CAF50" 
+                    TextColor="White" />
+
+                <!-- 太科贴吧按钮 -->
+                <Button Text="太科贴吧" 
+                    Clicked="OnForumClicked" 
+                    FontSize="20" 
+                    HorizontalOptions="Fill" 
+                    BackgroundColor="#FF9800" 
+                    TextColor="White" />
+
+                <!-- 检查更新按钮 -->
+                <Button Text="检查更新" 
+                    Clicked="OnCheckForUpdatesClicked" 
+                    FontSize="20" 
+                    HorizontalOptions="Fill" 
+                    BackgroundColor="#9C27B0" 
+                    TextColor="White" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

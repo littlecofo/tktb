@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.ProfilePage"
+             Title="个人空间">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ProfileButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Margin" Value="0,10,0,10" />
+                <Setter Property="BackgroundColor" Value="#007AFF" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="ProfileLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Margin" Value="0,5,0,5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="30" VerticalOptions="StartAndExpand" Spacing="20">
+            <Frame Padding="20" CornerRadius="10" HasShadow="True" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <Image x:Name="ProfilePhoto" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" HorizontalOptions="Start" />
+                    <StackLayout HorizontalOptions="StartAndExpand" Spacing="10">
+                        <Label x:Name="Nickname" FontSize="24" HorizontalOptions="Start" />
+                        <Label x:Name="Bio" Style="{StaticResource ProfileLabelStyle}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="20" CornerRadius="10" HasShadow="True" HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label x:Name="Experience" Style="{StaticResource ProfileLabelStyle}" />
+                        <Label x:Name="ExperienceDetail" Style="{StaticResource ProfileLabelStyle}" />
+                    </StackLayout>
+                    <Label x:Name="Title" Style="{StaticResource ProfileLabelStyle}" />
+                    <Label x:Name="Points" Style="{StaticResource ProfileLabelStyle}" />
+                </StackLayout>
+            </Frame>
+
+            <Button Text="编辑资料" Clicked="OnEditProfileClicked" Style="{StaticResource ProfileButtonStyle}" />
+            <Button Text="我的商品" Clicked="OnMyProductsClicked" Style="{StaticResource ProfileButtonStyle}" />
+            <Button Text="我的帖子" Clicked="OnMyPostsClicked" Style="{StaticResource ProfileButtonStyle}" />
+            <Button Text="退出登录" Clicked="OnLogoutClicked" Style="{StaticResource ProfileButtonStyle}" BackgroundColor="Red" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

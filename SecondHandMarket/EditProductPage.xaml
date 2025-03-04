@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.EditProductPage"
+             Title="编辑商品">
+    <ContentPage.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#007AFF" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="Margin" Value="0,10,0,0" />
+        </Style>
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="Margin" Value="0,10,0,0" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="20">
+            <Frame HasShadow="True" Padding="0" CornerRadius="10" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center">
+                <Image x:Name="ProductImage" Aspect="AspectFill" />
+            </Frame>
+            <Button Text="从相册选择图片" Clicked="OnPickPhotoClicked" Style="{StaticResource ButtonStyle}" />
+            <Button Text="拍照" Clicked="OnTakePhotoClicked" Style="{StaticResource ButtonStyle}" />
+            <Entry x:Name="NameEntry" Placeholder="商品名称" Style="{StaticResource EntryStyle}" />
+            <Entry x:Name="DescriptionEntry" Placeholder="商品描述" Style="{StaticResource EntryStyle}" />
+            <Entry x:Name="PriceEntry" Placeholder="价格" Keyboard="Numeric" Style="{StaticResource EntryStyle}" />
+            <Button Text="保存" Clicked="OnSaveClicked" Style="{StaticResource ButtonStyle}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

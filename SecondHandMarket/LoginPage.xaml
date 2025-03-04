@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.LoginPage"
+             Title="登录">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="Margin" Value="0,10,0,10" />
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Margin" Value="0,10,0,10" />
+                <Setter Property="BackgroundColor" Value="#007AFF" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="30" VerticalOptions="StartAndExpand">
+        <Frame Padding="20" CornerRadius="10" HasShadow="True">
+            <StackLayout>
+                <Entry x:Name="UsernameEntry" Placeholder="账号" Style="{StaticResource EntryStyle}" />
+                <Entry x:Name="PasswordEntry" Placeholder="密码" IsPassword="True" Style="{StaticResource EntryStyle}" />
+                <Button Text="登录" Clicked="OnLoginClicked" Style="{StaticResource ButtonStyle}" />
+                <Button Text="忘记密码" Clicked="OnForgotPasswordClicked" Style="{StaticResource ButtonStyle}" BackgroundColor="Transparent" TextColor="#007AFF" />
+                <Button Text="注册" Clicked="OnRegisterClicked" Style="{StaticResource ButtonStyle}" BackgroundColor="Transparent" TextColor="#007AFF" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

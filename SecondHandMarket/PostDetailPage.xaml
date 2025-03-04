@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.PostDetailPage"
+             Title="帖子详情">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="PostTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0,10,0,10" />
+            </Style>
+            <Style x:Key="PostDetailLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Margin" Value="0,5,0,5" />
+            </Style>
+            <Style x:Key="CommentLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0,5,0,5" />
+            </Style>
+            <Style x:Key="CommentMetaLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Margin" Value="0,2,0,2" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <StackLayout Spacing="10">
+                <Label x:Name="TitleLabel" Style="{StaticResource PostTitleStyle}" />
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Image x:Name="AuthorProfilePhoto" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" />
+                    <StackLayout>
+                        <Label x:Name="AuthorLabel" Style="{StaticResource PostDetailLabelStyle}" />
+                        <Label x:Name="AuthorLevel" Style="{StaticResource PostDetailLabelStyle}" />
+                        <Label x:Name="AuthorTitle" Style="{StaticResource PostDetailLabelStyle}" />
+                    </StackLayout>
+                </StackLayout>
+                <Label x:Name="CategoryLabel" Style="{StaticResource PostDetailLabelStyle}" />
+                <Label x:Name="ContentLabel" Style="{StaticResource PostDetailLabelStyle}" TextType="Html" />
+                <BoxView HeightRequest="1" BackgroundColor="LightGray" Margin="0,10,0,10" />
+                <Label Text="留言" Style="{StaticResource PostTitleStyle}" />
+<CollectionView x:Name="CommentsCollectionView" RemainingItemsThreshold="1" RemainingItemsThresholdReached="OnCommentsScrolled">
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <Frame Padding="10" Margin="5" HasShadow="True" CornerRadius="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!-- 为评论头像添加 BindingContextChanged 事件 -->
+                    <Image x:Name="CommentAvatar"
+                           HeightRequest="50" WidthRequest="50"
+                           Grid.Column="0"
+                           BindingContextChanged="OnCommentImageBindingContextChanged" />
+                    <StackLayout Grid.Column="1" Padding="10,0,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding AuthorNickname}" Style="{StaticResource CommentMetaLabelStyle}" Grid.Column="0" />
+                            <Label Text="{Binding FloorNumber, StringFormat='{0}楼'}" Style="{StaticResource CommentMetaLabelStyle}" Grid.Column="1" Margin="10,0,0,0" />
+                            <Label Text="{Binding CreatedAt, StringFormat='{0:yyyy-MM-dd HH:mm}'}" Style="{StaticResource CommentMetaLabelStyle}" Grid.Column="2" HorizontalOptions="End" />
+                        </Grid>
+                        <Label Text="{Binding Content}" Style="{StaticResource CommentLabelStyle}" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>
+            </StackLayout>
+        </ScrollView>
+
+        <Entry x:Name="CommentEntry" Placeholder="输入留言" Grid.Row="1" Margin="0,10,0,10" />
+        <Button Text="发送" Clicked="OnSendCommentClicked" Grid.Row="2" />
+    </Grid>
+</ContentPage>

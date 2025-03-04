@@ -1,0 +1,21 @@
+# 忽略所有 bin 和 obj 目录
+bin/
+obj/
+
+# 忽略发布目录
+publish/
+
+# 忽略用户特定文件
+*.user
+*.suo
+
+# 忽略日志文件
+*.log
+
+# 忽略 NuGet 包
+*.nupkg
+*.snupkg
+
+# 忽略 Visual Studio 文件
+.vscode/
+.vs/
