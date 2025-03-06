@@ -1,6 +1,6 @@
 # SecondHandMarket
 
-SecondHandMarket 是用于服务特定大学学生的APP，致力于集成大学生活所需的所有功能工具，同时提供校友进行交流。
+SecondHandMarket 是用于服务特定大学学生的APP，致力于集成大学生活所需的所有功能工具，同时提供校友交流平台。
 
 ## 功能
 
