@@ -30,7 +30,7 @@ namespace SecondHandMarket
             };
             _httpClient = new HttpClient(handler)
             {
-                BaseAddress = new Uri("https://localhost:5184/")
+                BaseAddress = new Uri("https://"+App.BaseAddress+"/")
             };
 
             LoadProduct();

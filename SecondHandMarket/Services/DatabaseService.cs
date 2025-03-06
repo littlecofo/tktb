@@ -24,7 +24,7 @@ namespace SecondHandMarket.Services
             }
         );
         // 请根据实际情况修改服务端地址和端口
-        public const string BaseUrl = "https://localhost:5184/api";
+        public string BaseUrl = "https://"+App.BaseAddress+"/api";
 
         // 获取所有商品数据（由服务端进行返回）
         public async Task<List<Product>> GetProductsAsync()

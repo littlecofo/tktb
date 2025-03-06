@@ -16,7 +16,7 @@ namespace SecondHandMarket
         private const int CommentPageSize = 10;
         private bool _isLoadingMoreComments = false;
         private bool _hasMoreComments = true;
-        private const string BaseUrl = "https://localhost:5184";
+        private string BaseUrl = "https://"+App.BaseAddress;
 
         public PostDetailPage(Post post)
         {

@@ -42,7 +42,7 @@ namespace SecondHandMarket
                     ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
                 };
                 using var client = new HttpClient(handler);
-                client.BaseAddress = new Uri("https://localhost:5184/");
+                client.BaseAddress = new Uri("https://"+App.BaseAddress+"/");
                 var response = await client.PostAsJsonAsync("api/Users/login", loginData);
 
                 if (response.IsSuccessStatusCode)

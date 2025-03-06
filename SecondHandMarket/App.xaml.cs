@@ -15,6 +15,7 @@ namespace SecondHandMarket
         public string CurrentUserPhoneNumber { get; set; }
         public User CurrentUser { get; set; }
         public static HttpClient HttpClient { get; private set; }
+        public static string BaseAddress { get; } = "localhost:5001";
 
         static App()
         {
@@ -37,7 +38,7 @@ namespace SecondHandMarket
             // 使用指定的 HttpClientHandler 实例化 HttpClient
             HttpClient = new HttpClient(handler)
             {
-                BaseAddress = new Uri("https://localhost:5184/")
+                BaseAddress = new Uri("https://"+App.BaseAddress+"/")
             };
 
             InitializeComponent();
