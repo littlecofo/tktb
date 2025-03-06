@@ -11,7 +11,7 @@ namespace SecondHandMarket
         private readonly DatabaseService _databaseService;
         private Product _currentProduct;
         // 根据实际情况修改基础 URL
-        private const string BaseUrl = "https://47.95.30.190";
+        private const string BaseUrl = "https://localhost:5184";
 
         public ProductDetailPage(Product product)
         {

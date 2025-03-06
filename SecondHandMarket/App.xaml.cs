@@ -37,7 +37,7 @@ namespace SecondHandMarket
             // 使用指定的 HttpClientHandler 实例化 HttpClient
             HttpClient = new HttpClient(handler)
             {
-                BaseAddress = new Uri("https://47.95.30.190/")
+                BaseAddress = new Uri("https://localhost:5184/")
             };
 
             InitializeComponent();

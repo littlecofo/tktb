@@ -27,7 +27,7 @@ namespace SecondHandMarket
             };
             _httpClient = new HttpClient(handler)
             {
-                BaseAddress = new Uri("https://47.95.30.190/")
+                BaseAddress = new Uri("https://localhost:5184/")
             };
         }
 
