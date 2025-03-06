@@ -122,5 +122,17 @@ namespace SecondHandMarket
             ((App)Application.Current).CurrentUserPhoneNumber = null;
             await Navigation.PopToRootAsync();
         }
+        private async void OnGradeQueryClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GradeQueryPage("https://newjwc.tyust.edu.cn/jwglxt/cjcx/cjcx_cxDgXscj.html?gnmkdm=N305005&layout=default"));
+        }
+        private async void OnClassroomClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GradeQueryPage("https://newjwc.tyust.edu.cn/jwglxt/cdjy/cdjy_cxKxcdlb.html?gnmkdm=N2155&layout=default"));
+        }
+        private async void OnLessonsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GradeQueryPage("https://newjwc.tyust.edu.cn/jwglxt/kbcx/xskbcx_cxXskbcxIndex.html?gnmkdm=N253508&layout=default"));
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using Android.Webkit;
 
 namespace SecondHandMarket
 {
@@ -15,7 +16,9 @@ namespace SecondHandMarket
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            
             base.OnCreate(savedInstanceState);
+            
 
             // 强制使用 TLS 1.2
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;

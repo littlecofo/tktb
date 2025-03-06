@@ -70,7 +70,7 @@ namespace SecondHandMarket
                             return;
                         }
 
-                        var currentVersion = Version.Parse("1.0.2");
+                        var currentVersion = Version.Parse("1.0.3");
                         var latestVersion = Version.Parse(versionInfo.Version);
                         Debug.Print("当前版本：" + currentVersion);
                         Debug.Print("最新版本：" + latestVersion);

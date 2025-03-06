@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecondHandMarket.GradeQueryPage"
+             Title="统一门户登录">
+  <StackLayout>
+    <!-- WebView用于显示统一门户登录页面 -->
+    <WebView x:Name="LoginWebView"
+             Source="https://sso1.tyust.edu.cn/login"
+             Navigated="LoginWebView_Navigated"
+             HeightRequest="600" />
+    <!-- 完成登录后点击按钮，手动获取Cookie
+    <Button x:Name="LoginButton"
+            Text="完成登录并获取Cookie"
+            Clicked="OnLoginButtonClicked" /> -->
+    <ActivityIndicator x:Name="LoadingIndicator"
+                       IsRunning="True"
+                       IsVisible="False" />
+  </StackLayout>
+</ContentPage>

@@ -23,11 +23,14 @@
         <ApplicationTitle>太科贴吧</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.companyname.secondhandmarket</ApplicationId>
+        <ApplicationId>com.beifangaoye.secondhandmarket</ApplicationId>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+        <ApplicationDisplayVersion>1.0.3</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
+
+        <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+        <AndroidTlsProvider>btls</AndroidTlsProvider>
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -59,6 +62,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="AngleSharp" Version="1.2.0" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.74" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.100" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
         <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />

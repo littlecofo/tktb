@@ -43,9 +43,22 @@
                 </StackLayout>
             </Frame>
 
-            <Button Text="编辑资料" Clicked="OnEditProfileClicked" Style="{StaticResource ProfileButtonStyle}" />
-            <Button Text="我的商品" Clicked="OnMyProductsClicked" Style="{StaticResource ProfileButtonStyle}" />
-            <Button Text="我的帖子" Clicked="OnMyPostsClicked" Style="{StaticResource ProfileButtonStyle}" />
+            <Frame Padding="20" CornerRadius="10" HasShadow="True" HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <Button Text="编辑资料" Clicked="OnEditProfileClicked" Style="{StaticResource ProfileButtonStyle}" />
+                    <Button Text="成绩查询" Clicked="OnGradeQueryClicked" Style="{StaticResource ProfileButtonStyle}" />
+                    <Button Text="空闲教室" Clicked="OnClassroomClicked" Style="{StaticResource ProfileButtonStyle}" />
+                    <Button Text="课表查询" Clicked="OnLessonsClicked" Style="{StaticResource ProfileButtonStyle}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="20" CornerRadius="10" HasShadow="True" HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <Button Text="我的商品" Clicked="OnMyProductsClicked" Style="{StaticResource ProfileButtonStyle}" />
+                    <Button Text="我的帖子" Clicked="OnMyPostsClicked" Style="{StaticResource ProfileButtonStyle}" />
+                </StackLayout>
+            </Frame>
+
             <Button Text="退出登录" Clicked="OnLogoutClicked" Style="{StaticResource ProfileButtonStyle}" BackgroundColor="Red" />
         </StackLayout>
     </ScrollView>

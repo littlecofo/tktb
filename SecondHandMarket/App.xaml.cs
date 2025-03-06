@@ -42,6 +42,7 @@ namespace SecondHandMarket
 
             InitializeComponent();
             //ClearCachedLoginInfo();
+            //ClearCachedCookies();
             // 尝试自动登录
             AttemptAutoLogin();
 
@@ -79,6 +80,7 @@ namespace SecondHandMarket
                     Console.WriteLine("自动登录异常：" + ex.ToString());
                 }
             }
+            
         }
         // 你可以在发布前调用该方法清除缓存登录信息
 private void ClearCachedLoginInfo()
@@ -86,6 +88,11 @@ private void ClearCachedLoginInfo()
     Preferences.Remove("PhoneNumber");
     Preferences.Remove("Password");
 }
+// 清除缓存的 Cookie
+    private void ClearCachedCookies()
+    {
+        Preferences.Remove("EducationalSystemCookie");
+    }
     }
 
     public class VersionResponse
@@ -98,6 +105,7 @@ private void ClearCachedLoginInfo()
         public string Version { get; set; }
         public string DownloadUrl { get; set; }
     }
+    
     
 
 }
